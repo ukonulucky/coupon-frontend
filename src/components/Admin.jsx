@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Form from "react-bootstrap/Form";
 import "../styles/home.css"
 import {Link, useNavigate} from "react-router-dom"
-import axios from "axios"
+import axios from "./axios"
 import ResponsiveExample from './Sidebar';
 import MyVerticallyCenteredModal from './Model';
 
@@ -37,7 +37,7 @@ function Admin() {
         }
         console.log(data)
         try {
-            const res = await axios.post("http://localhost:5000/api/user/registervendor", data, {
+            const res = await axios.post("/api/user/registervendor", data, {
                 withCredentials: true
             })
             console.log(res)
@@ -61,7 +61,7 @@ function Admin() {
  
     const getAllCoupons = async() => {
         try {
-    const couponData = await axios.get("http://localhost:5000/api/coupon/getAllCoupons",{
+    const couponData = await axios.get("/api/coupon/getAllCoupons",{
         withCredentials: true})
         console.log(couponData)
         if(couponData.status === 404){
@@ -202,13 +202,7 @@ function Admin() {
       </Spinner> : ""
        }
         </Button>
-      </Form>  
-      
-      
-
-     
-      
-               
+      </Form>        
             </div>:<div className="spiner">
             <Spinner animation="grow" />
             </div>

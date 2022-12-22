@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 import logo from "../images/coupon.jpg"
 import "../styles/home.css"
 import {Link, useLocation} from "react-router-dom"
-import axios from "axios"
+import axios from "./axios"
 import ResponsiveExample from './Sidebar';
 import PayStack from './Paystack';
 
@@ -33,7 +33,7 @@ function Home() {
  
     const getAllCoupons = async() => {
         try {
-    const couponData = await axios.get("http://localhost:5000/api/coupon/getAllCoupons",{
+    const couponData = await axios.get("/api/coupon/getAllCoupons",{
         withCredentials: true})
         console.log(couponData)
    if(!couponData){
@@ -52,9 +52,7 @@ function Home() {
     }
  
     useEffect(() => {
-        setUserLoggedIn(location.state)
-          },[])
-    useEffect(() => {
+setUserLoggedIn(location.state)
   getAllCoupons()
  
     },[])

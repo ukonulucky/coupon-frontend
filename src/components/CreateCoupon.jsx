@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "./axios"
 import Spinner from 'react-bootstrap/Spinner';
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
@@ -21,7 +21,7 @@ function CreateCoupon() {
         }
         console.log(data)
         try {
-            const res = await axios.post("http://localhost:5000/api/coupon/generateCoupon", data, {
+            const res = await axios.post("/api/coupon/generateCoupon", data, {
               withCredentials:true
             })
             console.log(res)

@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "./axios"
 import Spinner from 'react-bootstrap/Spinner';
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
@@ -22,7 +22,7 @@ function Login() {
         }
         setSpinnerState(true)
         try {
-            const res = await axios.post("http://localhost:5000/api/user/login",data,{
+            const res = await axios.post("/api/user/login",data,{
               withCredentials: true
             })
             if(res.data){
