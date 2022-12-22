@@ -1,0 +1,42 @@
+.login-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    row-gap: 20px;
+    h2{
+        font-size: 1.5rem;
+        margin: 0 auto;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        div{
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            justify-content: center;
+            .form-label{
+                font-size: 1rem;
+                text-transform: capitalize;
+                width: max-content !important;
+            }
+        }
+        button{
+            padding: 5px 30px;
+            border: 0px;
+            width: max-content;
+            background-color: blue;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 auto;
+            margin-top: 1rem;
+        }
+    }
+}

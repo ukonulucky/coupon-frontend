@@ -1,0 +1,52 @@
+.wrapper .spiner {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+.wrapper .spiner .spiner-grow {
+  width: 50px;
+  height: 50px;
+}
+.wrapper .wrapper-navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  background-color: lightblue;
+  align-items: center;
+}
+.wrapper .wrapper-navbar img {
+  width: 100px;
+  height: 60px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.wrapper .wrapper-navbar .text {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  align-items: center;
+}
+.wrapper .wrapper-navbar .text button {
+  border: 0;
+  border-radius: 10px;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+.wrapper .wrapper-navbar .text button a {
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  color: crimson;
+}
+.wrapper .wrapper-container {
+  display: flex;
+}
+.wrapper .wrapper-container .sidebar {
+  flex: 1;
+  padding: 20px 0px 20px 10px;
+}
+.wrapper .wrapper-container .wrapper-content {
+  flex: 4;
+}/*# sourceMappingURL=home.css.map */
