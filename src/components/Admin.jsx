@@ -61,7 +61,7 @@ function Admin() {
  
     const getAllCoupons = async() => {
         try {
-    const couponData = await axios.get("/api/coupon/getAllCoupons",{
+    const couponData = await axios.get("api/coupon/getAllCoupons",{
         withCredentials: true})
         console.log(couponData)
         if(couponData.status === 404){
@@ -77,7 +77,7 @@ function Admin() {
    setCoupon(couponData.data)
    setCouponToShow(couponData.data)
         } catch (error) {
-            if(error.respons){
+            if(error.response){
                 console.log(error.response.data.message)
             }else{
                 console.log(error.message)

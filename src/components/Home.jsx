@@ -29,7 +29,6 @@ function Home() {
        
     }
 
- 
     const getAllCoupons = async() => {
         try {
     const couponData = await axios.get("api/coupon/getAllCoupons",{
@@ -42,7 +41,7 @@ function Home() {
    setCoupon(couponData.data)
    setCouponToShow(couponData.data)
         } catch (error) {
-            if(error.respons){
+            if(error.response){
                 console.log(error.response.data.message)
             }else{
                 console.log(error.message)
