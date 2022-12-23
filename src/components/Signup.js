@@ -23,7 +23,7 @@ function Signup() {
         }
         console.log(data)
         try {
-            const res = await axios.post("/api/user/register", data)
+            const res = await axios.post("api/user/register", data)
             console.log(res)
             if(res.data){
               setSpinnerState(false)

@@ -2,13 +2,10 @@ import axios from "axios"
 
 
 const options= {
-    baseURL:"https://coupon-server-apis.onrender.com"
+    baseURL:"https://coupon-server-apis.onrender.com",
+    withredentials:true
 }
 
-const axiosInstance = axios.create(options)
-
-
-
-export default axiosInstance
+export default axios.create(options)
 
 

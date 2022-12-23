@@ -10,7 +10,6 @@ import ResponsiveExample from './Sidebar';
 import PayStack from './Paystack';
 
 function Home() {
-
     const location = useLocation()
     const [isUserAdmin, setIsUserAdminn] = useState(false)
     const [userLoggedIn, setUserLoggedIn] = useState("")
@@ -33,7 +32,7 @@ function Home() {
  
     const getAllCoupons = async() => {
         try {
-    const couponData = await axios.get("/api/coupon/getAllCoupons",{
+    const couponData = await axios.get("api/coupon/getAllCoupons",{
         withCredentials: true})
         console.log(couponData)
    if(!couponData){

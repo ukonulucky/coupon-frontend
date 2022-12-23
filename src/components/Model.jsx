@@ -20,7 +20,7 @@ function MyVerticallyCenteredModal(props) {
         }
         console.log(data)
         try {
-            const res = await axios.post("/api/coupon/createCouponForVendor", data, {
+            const res = await axios.post("api/coupon/createCouponForVendor", data, {
                 withCredentials: true
             })
             console.log(res)

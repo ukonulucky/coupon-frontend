@@ -36,7 +36,7 @@ function Admin() {
         }
         console.log(data)
         try {
-            const res = await axios.post("/api/user/register", data)
+            const res = await axios.post("api/user/register", data)
             console.log(res)
             if(res.data){
               setSpinnerState(false)
@@ -58,7 +58,7 @@ function Admin() {
  
     const getAllCoupons = async() => {
         try {
-    const couponData = await axios.get("/api/coupon/getAllCoupons",{
+    const couponData = await axios.get("api/coupon/getAllCoupons",{
         withCredentials: true})
         console.log(couponData)
         if(couponData.status === 404){

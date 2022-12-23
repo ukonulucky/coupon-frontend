@@ -22,7 +22,7 @@ function Login() {
         }
         setSpinnerState(true)
         try {
-            const res = await axios.post("/api/user/login",data,{
+            const res = await axios.post("api/user/login",data,{
               withCredentials: true
             })
             if(res.data){
