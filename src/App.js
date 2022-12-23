@@ -6,7 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import ResponsiveExample from "./components/Sidebar";
 import CreateCoupon from "./components/CreateCoupon";
 import Admin from "./components/Admin";
+import axios from "axios"
 function App() {
+  axios.default.withCredentials = true;
   return (
     <div className="App">
      <Router>
