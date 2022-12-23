@@ -31,8 +31,7 @@ function Home() {
 
     const getAllCoupons = async() => {
         try {
-    const couponData = await axios.get("api/coupon/getAllCoupons",{
-        withCredentials: true})
+    const couponData = await axios.get("api/coupon/getAllCoupons",{withCredentials: true})
         console.log(couponData)
    if(!couponData){
        setCoupon([])
