@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useReducer} from 'react'
+import React, {useEffect, useState} from 'react'
 import logo from "../images/coupon.jpg"
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
@@ -59,34 +59,9 @@ function Admin() {
         }
   }
  
-    const getAllCoupons = async() => {
-        try {
-    const couponData = await axios.get("api/coupon/getAllCoupons",{
-        withCredentials: true})
-        console.log(couponData)
-        if(couponData.status === 404){
-        alert("Page restricted to only addmin")
-         navigate("/login")
-       
-         return
-        }
-   if(!couponData){
-       setCoupon([])
-       return
-   }
-   setCoupon(couponData.data)
-   setCouponToShow(couponData.data)
-        } catch (error) {
-            if(error.response){
-                console.log(error.response.data.message)
-            }else{
-                console.log(error.message)
-            }
-        }
-    }
+ 
  
     useEffect(() => {
-  getAllCoupons()
  
     },[])
 
@@ -129,8 +104,7 @@ function Admin() {
                </Link>
             </div>
         </div>
-        {
-            coupon ? <div className='container-fluid d-flex flex-column align-items-center gap-5'>
+           <div className='container-fluid d-flex flex-column align-items-center gap-5'>
                 <div className="wrapper-content">
                     {couponElement}
                 </div>
@@ -203,10 +177,7 @@ function Admin() {
        }
         </Button>
       </Form>        
-            </div>:<div className="spiner">
-            <Spinner animation="grow" />
             </div>
-        }
     </div>
   )
 }

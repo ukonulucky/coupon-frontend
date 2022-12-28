@@ -44,12 +44,11 @@ function Signup() {
         }
   }
   return (
- 
     <div className="login-container">
       <Form onSubmit={submitForm}>
         <h2>Signup Form</h2>
         <Form.Group className="mb-3">
-          <Form.Label>First Name:</Form.Label>
+          <Form.Label>First Name</Form.Label>
           <Form.Control
             type="text" 
             placeholder="Enter Last Name"
@@ -60,7 +59,7 @@ function Signup() {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Last Name:</Form.Label>
+          <Form.Label>Last Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter Last Name"
@@ -71,7 +70,7 @@ function Signup() {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address:</Form.Label>
+          <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -83,7 +82,7 @@ function Signup() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password:</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"
@@ -94,7 +93,7 @@ function Signup() {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-        <Form.Label>Choose Role:</Form.Label>
+        <Form.Label>Choose Role</Form.Label>
         <Form.Select aria-label="Default select example" onChange={(e) => {
              setRole(e.target.value)
         }}>

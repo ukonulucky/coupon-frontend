@@ -1,13 +1,14 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-function DropdownComponent({dropdownData, filterTodoByState}) {
-    const dropdownComponent =dropdownData.map((i,j) =>{
+function DropdownComponent({filterTodoByState}) {
+    const myStates = ["Lagos", "Imo", "Anambra"]
+    const dropdownComponent = myStates.map((i,j) =>{
     return <div key={j} onClick={() => {
-        filterTodoByState(i.state)
+        filterTodoByState(i)
     }}>
         <Dropdown.Item >
-        {i.state}
+        {i}
         </Dropdown.Item>
     </div>
     })

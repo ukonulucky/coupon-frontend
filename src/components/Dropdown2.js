@@ -1,20 +1,21 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-function DropdownComponent2({dropdownData, filterTodoByState}) {
-    const dropdownComponent =dropdownData.map((i,j) =>{
+function DropdownComponent2({ filterTodoByCategory}) {
+    const sections = ["E-commerce", "engineering","learning", "software"];
+    const dropdownComponent =sections.map((i,j) =>{
     return <div key={j} onClick={() => {
-        filterTodoByState(i.state)
+        filterTodoByCategory(i)
     }}>
         <Dropdown.Item >
-        {i.category}
+        {i}
         </Dropdown.Item>
     </div>
     }) 
   return (
     <DropdownButton id="dropdown-basic-button" title="Coupons By Category">
         <div onClick={() => {
-        filterTodoByState("all")
+        filterTodoByCategory("all")
     }}>
         <Dropdown.Item >
         All Categories

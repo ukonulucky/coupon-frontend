@@ -54,7 +54,7 @@ function Login() {
       <Form onSubmit={submitForm}>
       <h2>Login Form</h2>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address:</Form.Label>
+          <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -66,7 +66,7 @@ function Login() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password:</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"
@@ -77,7 +77,7 @@ function Login() {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-        <Form.Label>Choose Role:</Form.Label>
+        <Form.Label>Choose Role</Form.Label>
         <Form.Select aria-label="Default select example" onChange={(e) => {
              setRole(e.target.value)
         }}>

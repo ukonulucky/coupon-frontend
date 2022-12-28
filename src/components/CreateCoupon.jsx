@@ -1,23 +1,31 @@
 import axios from "./axios"
 import Spinner from 'react-bootstrap/Spinner';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../styles/login.css"
-import {Link, useNavigate} from "react-router-dom"
+import {Link, useLocation} from "react-router-dom"
+import logo from "../images/coupon.jpg"
+
 
 function CreateCoupon() {
+  const location  = useLocation()
+ useEffect(() => {
+
+ })
+
   const [category, setCategory] = useState("");
   const [state, setState] = useState("");
   const [spinnerState, setSpinnerState] = useState(false);
   const [percent, setPercent] = useState("");
   const [couponType, setCouponType] = useState("");
+  const [amount,setAmount] = useState("");
 
   const submitForm = async (e) => {
         e.preventDefault();
         setSpinnerState(true)
         const data ={
-            category, state, percent, couponType
+            category, state, percent, couponType, amount
         }
         console.log(data)
         try {
@@ -45,6 +53,17 @@ function CreateCoupon() {
   return (
  
     <div className="login-container container-fluid">
+      <div className="container-fluid d-flex justify-content-start"
+     
+      >
+      <Link to="/">
+      <img src={logo} alt="logo"  style={{
+          height: "70px",
+          width:"100px"
+        }} />
+      </Link>
+
+      </div>
       <Form onSubmit={submitForm}>
         <h2>Create Coupon Form</h2>
         <Form.Group className="mb-3">
@@ -81,7 +100,17 @@ function CreateCoupon() {
           
           />
         </Form.Group>
-
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Amount:</Form.Label>
+          <Form.Control
+            type="Number"
+            placeholder="Enter Amount"
+            onChange={(e) => {
+              setAmount(e.target.value);
+            }}
+            required
+          />
+        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasiccouponType">
           <Form.Label>couponType:</Form.Label>
           <Form.Select aria-label="Default select example" onChange={(e) => {

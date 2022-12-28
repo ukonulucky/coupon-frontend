@@ -5,9 +5,9 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import DropdownComponent from './Dropdown';
 import DropdownComponent2 from './Dropdown2';
 
-function ResponsiveExample({couponsProp, filterTodoByState}) {
+function ResponsiveExample({couponsProp, filterTodoByState, filterTodoByCategory}) {
+  
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -22,9 +22,9 @@ function ResponsiveExample({couponsProp, filterTodoByState}) {
           <Offcanvas.Title className='mt-5'>List Of Categories</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className='d-flex flex-column'> 
-         <DropdownComponent dropdownData = {couponsProp} filterTodoByState={filterTodoByState} />
+         <DropdownComponent  filterTodoByState={filterTodoByState} />
         <div className='mt-5'>
-        <DropdownComponent2 dropdownData = {couponsProp} filterTodoByState={filterTodoByState} />
+        <DropdownComponent2  filterTodoByCategory={filterTodoByCategory} />
         </div>
 
         </Offcanvas.Body>
@@ -32,6 +32,6 @@ function ResponsiveExample({couponsProp, filterTodoByState}) {
       </Offcanvas>
     </>
   );
-}
+} 
 
 export default ResponsiveExample;
