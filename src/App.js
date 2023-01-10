@@ -1,5 +1,5 @@
 import Home from "./components/Home";
-import Login from "./components/Login";
+ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -7,9 +7,11 @@ import ResponsiveExample from "./components/Sidebar";
 import CreateCoupon from "./components/CreateCoupon";
 import Admin from "./components/Admin";
 import axios from "axios"
+import VendorAdmin from "./components/VendorAdmin";
+import AdminPanel from "./components/Vendor";
 function App() {
   axios.default.withCredentials = true;
-  return (
+  return (  
     <div className="App">
      <Router>
      <Routes>
@@ -19,6 +21,8 @@ function App() {
       <Route   path="/signup" element={<Signup />}  />
       <Route   path="/admin" element={<Admin />}  />
       <Route   path="/createCoupon" element={<CreateCoupon />}  />
+      <Route   path="/vendorAdmin" element={<VendorAdmin />}  />
+      <Route   path="/AdminPanel" element={<AdminPanel />}  />
       <Route   path="*" element={
         <h2>404 Page Not Found</h2>
       }  />

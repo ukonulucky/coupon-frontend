@@ -7,7 +7,8 @@ import "../styles/login.css"
 import {useNavigate} from "react-router-dom"
 import { Link } from "react-router-dom"; 
 import logo from "../images/coupon.jpg"
-function Admin() {
+
+function VendorAdmin() {
   const navigate = useNavigate()
   const [spinnerState, setSpinnerState] = useState(false)
   const [email, setEmail] = useState("");
@@ -61,7 +62,7 @@ function Admin() {
 
       </div>
       <Form onSubmit={submitForm}>
-      <h2>Admin Login</h2>
+      <h2>Vendor Admin Login</h2>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -91,7 +92,7 @@ function Admin() {
              setRole(e.target.value)
         }}>
       <option>Select A Role</option>
-      <option value="admin">Admin</option>
+      <option value="VendorAdmin">VendorAdmin</option>
     </Form.Select>
    
           
@@ -115,4 +116,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default VendorAdmin;

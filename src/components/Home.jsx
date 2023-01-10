@@ -1,6 +1,5 @@
 import React, {useEffect, useState, useReducer} from 'react'
 import Spinner from 'react-bootstrap/Spinner';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import logo from "../images/coupon.jpg"
 import "../styles/home.css"
@@ -15,10 +14,10 @@ function Home() {
     const [userLoggedIn, setUserLoggedIn] = useState("")
     const [coupon, setCoupon] = useState(null)
     const [couponToShow, setCouponToShow] = useState(null)
+    const [premium, setPremium] = useState(false)
  
     function filterTodoByState(myState) {
     const data =    coupon.filter((i) => {
-        console.log(i.state, myState)
                 return i.state?.toLowerCase() === myState?.toLowerCase()
         })
         if(data.length > 0){
@@ -184,7 +183,7 @@ const componenToDisplayFunc = function () {
                 <Link to="/createCoupon" state={userLoggedIn}>
                Create Coupon
                </Link>
-               <Link to="/admin">Admin Dashboard</Link>  
+               <Link to="/adminpanel">Admin Dashboard</Link>  
                 </> :
                 ""
                }
@@ -194,7 +193,10 @@ const componenToDisplayFunc = function () {
                }
                  {
                     userLoggedIn.role === "user" ? 
-                    <PayStack userEmail =  {userLoggedIn.email} />
+                        <PayStack userEmail =  {userLoggedIn.email} 
+                    premium = {premium} 
+                    />
+                    
                  : ""
                  }
                 <button onClick = {logOutUser}>

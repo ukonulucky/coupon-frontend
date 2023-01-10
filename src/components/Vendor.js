@@ -10,7 +10,7 @@ import ResponsiveExample from './Sidebar';
 import MyVerticallyCenteredModal from './Model';
 
 
-function Admin() {
+function AdminPanel() {
     const navigate = useNavigate()
     const [modalShow, setModalShow] = useState(false);
     const [firstName, setFirstName] = useState("");
@@ -137,4 +137,4 @@ function Admin() {
   )
 }
 
-export default Admin
+export default AdminPanel

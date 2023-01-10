@@ -11,14 +11,14 @@ function MyVerticallyCenteredModal(props) {
     const [state, setState] = useState("");
     const [percent, setPercent] = useState("");
     const [couponType, setCouponType] = useState("");
+    const [amount, setAmount] = useState("");
     const _id = props._id
     const submitForm = async (e) => {
         e.preventDefault();
         setSpinnerState(true)
         const data ={
-            category, state, percent, couponType, _id
+            category, state, percent, couponType, _id, amount
         }
-        console.log(data)
         try {
             const res = await axios.post("api/coupon/createCouponForVendor", data, {
                 withCredentials: true
@@ -26,8 +26,7 @@ function MyVerticallyCenteredModal(props) {
             console.log(res)
             if(res.data){
               setSpinnerState(false)
-                console.log(res.data)
-                   alert("user registration successfully")
+                   alert("coupon creation Successfully")
             }else{
               setSpinnerState(false)
                 alert("user registration failed")
@@ -83,7 +82,7 @@ function MyVerticallyCenteredModal(props) {
         <Form.Group className="mb-3" controlId="formBasicpersent">
           <Form.Label className="container-fluid">Discount(%):</Form.Label>
           <Form.Control required
-            type="persent"
+            type="text"
             placeholder="Enter percent"
             onChange={(e) => {
               setPercent(e.target.value);
@@ -102,6 +101,17 @@ function MyVerticallyCenteredModal(props) {
       <option value="hidden">Hidden</option>
       <option value="premium">Premium</option>
     </Form.Select>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicpersent">
+          <Form.Label className="container-fluid">Amount:</Form.Label>
+          <Form.Control required
+            type="Number"
+            placeholder="Enter Amount"
+            onChange={(e) => {
+              setAmount(e.target.value);
+            }}
+          
+          />
         </Form.Group>
         <Button variant="primary d-flex align-items-center gap-3" type="submit">
           <span className="mr-3">Submit</span>
