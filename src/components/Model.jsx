@@ -6,6 +6,7 @@ import {useState} from "react"
 import axios from "./axios"
 
 function MyVerticallyCenteredModal(props) {
+    console.log('this is the props', props)
   const [spinnerState, setSpinnerState] = useState("");
     const [category, setCategory] = useState("");
     const [state, setState] = useState("");
