@@ -3,18 +3,23 @@ import Spinner from 'react-bootstrap/Spinner';
 import Card from 'react-bootstrap/Card';
 import logo from "../images/coupon.jpg"
 import "../styles/home.css"
-import {Link, useLocation} from "react-router-dom"
+import {Link, useLocation, useNavigate} from "react-router-dom"
 import axios from "./axios"
 import ResponsiveExample from './Sidebar';
 import PayStack from './Paystack';
+import Cookies from "js-cookie"
 
 function Home() {
+    const navigate = useNavigate()
     const location = useLocation()
     const [isUserAdmin, setIsUserAdminn] = useState(false)
     const [userLoggedIn, setUserLoggedIn] = useState("")
     const [coupon, setCoupon] = useState(null)
     const [couponToShow, setCouponToShow] = useState(null)
     const [premium, setPremium] = useState(false)
+console.log("this is the user loggedIn", userLoggedIn._id)
+    
+    
  
     function filterTodoByState(myState) {
     const data =    coupon.filter((i) => {
@@ -43,15 +48,26 @@ function Home() {
            
         }
     const getAllCoupons = async() => {
+        const cookie =  Cookies.get("user-login")
+        const url = cookie ?"api/coupon/getAllCouponsForLoggedInUser" : "api/coupon/getAllCoupons"
         try {
-    const couponData = await axios.get("api/coupon/getAllCoupons",{withCredentials: true})
+    const couponData = await axios.get(url,{withCredentials: true})
         console.log(couponData)
    if(!couponData){
        setCoupon([])
        return
    }
-   setCoupon(couponData.data)
-   setCouponToShow(couponData.data)
+if(couponData.data.user){
+    setCoupon(couponData.data.coupon)
+    setCouponToShow(couponData.data.coupon)
+    console.log("this is the user",couponData.data.user)
+    setUserLoggedIn(couponData.data.user)
+    return
+}
+setCoupon(couponData.data)
+setCouponToShow(couponData.data)
+
+   
         } catch (error) {
             if(error.response){
                 console.log(error.response.data.message)
@@ -62,9 +78,8 @@ function Home() {
     }
  
     useEffect(() => {
-setUserLoggedIn(location.state)
-  getAllCoupons()
  
+  getAllCoupons()
     },[])
 
 
@@ -180,7 +195,7 @@ const componenToDisplayFunc = function () {
                
                {
                 userLoggedIn.role === "admin" ? <> 
-                <Link to="/createCoupon" state={userLoggedIn}>
+                <Link to="/createCoupon">
                Create Coupon
                </Link>
                <Link to="/adminpanel">Admin Dashboard</Link>  
@@ -188,7 +203,19 @@ const componenToDisplayFunc = function () {
                 ""
                }
                 {
-                userLoggedIn.role === "vendor" ? <Link to="/admin">Vendor Dashboard</Link>:
+                userLoggedIn.role === "vendor" ? <span style={{
+                    cursor: "pointer"
+                }}
+                onClick= {
+                    () => {
+                        navigate("/vendorAdmin", {
+                            state:{
+                             userId: userLoggedIn?._id
+                            }
+                        })
+                    }
+                }
+                >Vendor Dashboard</span>:
                 ""
                }
                  {

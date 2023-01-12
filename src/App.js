@@ -7,8 +7,9 @@ import ResponsiveExample from "./components/Sidebar";
 import CreateCoupon from "./components/CreateCoupon";
 import Admin from "./components/Admin";
 import axios from "axios"
-import VendorAdmin from "./components/VendorAdmin";
-import AdminPanel from "./components/Vendor";
+import AdminPanel from "./components/AdminPanel";
+import Model2 from "./components/Model2";
+import VendorAdminPanel from "./components/VendorAdmin";
 function App() {
   axios.default.withCredentials = true;
   return (  
@@ -21,7 +22,8 @@ function App() {
       <Route   path="/signup" element={<Signup />}  />
       <Route   path="/admin" element={<Admin />}  />
       <Route   path="/createCoupon" element={<CreateCoupon />}  />
-      <Route   path="/vendorAdmin" element={<VendorAdmin />}  />
+      <Route   path="/vendorAdmin" element={<VendorAdminPanel />}
+        />
       <Route   path="/AdminPanel" element={<AdminPanel />}  />
       <Route   path="*" element={
         <h2>404 Page Not Found</h2>
